@@ -28,7 +28,15 @@ Prebuilt PAKs would contain edited copies of Jedi Survivor configuration files. 
 
 ## Install
 
-Extract `TextureFix4GB` into the main Jedi Survivor folder, then run:
+Extract `TextureFix4GB` into the main Jedi Survivor folder, then run the recommended build-only helper:
+
+```text
+Build-Presets.bat
+```
+
+Then manually copy `zz_JS4GB_Balanced_P9.pak` from `TextureFix4GB\dist` into `SwGame\Content\Paks`.
+
+Optional auto-installer:
 
 ```text
 Build-And-Install-Balanced.bat
@@ -47,4 +55,5 @@ Do not delete the original `pakchunk...` game files.
 ## Built With Codex
 
 Created start-to-finish with OpenAI Codex / GPT-5 as a coding assistant, including implementation, documentation, packaging, and verification.
+
 

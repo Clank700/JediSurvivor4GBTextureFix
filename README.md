@@ -45,19 +45,48 @@ STAR WARS Jedi Survivor\SwGame\Content\Paks\pakchunk0-WindowsNoEditor.pak
 
 If `TextureFix4GB` is not next to `SwGame`, it is in the wrong place.
 
-## Easiest Install
+## Recommended Install: Build, Then Manually Copy
+
+Manual copying is the recommended install method because it is transparent: you can see exactly which `.pak` file goes into the game folder, and uninstalling is just deleting that one file.
 
 1. Close the game.
 2. Extract `TextureFix4GB` into the main Jedi Survivor folder.
-3. Double-click:
+3. Open the `TextureFix4GB` folder.
+4. Double-click:
+
+```text
+Build-Presets.bat
+```
+
+5. After the build finishes, open:
+
+```text
+TextureFix4GB\dist
+```
+
+6. Copy this file:
+
+```text
+zz_JS4GB_Balanced_P9.pak
+```
+
+7. Paste it into the game's PAK folder:
+
+```text
+SwGame\Content\Paks
+```
+
+No original `pakchunk...` files are modified.
+
+## Optional One-Click Balanced Installer
+
+There is also a convenience file:
 
 ```text
 Build-And-Install-Balanced.bat
 ```
 
-The script will build the three presets from your own game files, then install Balanced.
-
-No original `pakchunk...` files are modified.
+That builds the presets and installs Balanced automatically. Manual copying is still recommended because it is easier to understand and verify.
 
 ## What Gets Created?
 
@@ -93,7 +122,7 @@ zz_JS4GB_Balanced_P9.pak
 
 ## Manual Install After Building
 
-If you do not want to use the switcher:
+This is the recommended way to install or test presets:
 
 1. Close the game.
 2. Open:
@@ -139,6 +168,8 @@ Again: only one preset should be installed at once.
 
 ## Optional PowerShell Switcher
 
+Manual copying is recommended for first-time users. The switcher is only a convenience script for people who are comfortable with PowerShell.
+
 After building, you can switch presets with:
 
 ```powershell
@@ -146,6 +177,12 @@ powershell -ExecutionPolicy Bypass -File .\TextureFix4GB\Switch-Preset.ps1 -Pres
 powershell -ExecutionPolicy Bypass -File .\TextureFix4GB\Switch-Preset.ps1 -Preset Performance
 powershell -ExecutionPolicy Bypass -File .\TextureFix4GB\Switch-Preset.ps1 -Preset Quality
 powershell -ExecutionPolicy Bypass -File .\TextureFix4GB\Switch-Preset.ps1 -Preset Off
+```
+
+If PowerShell is opened somewhere else, either move to the main game folder first or pass the game path explicitly:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File "C:\Path\To\TextureFix4GB\Switch-Preset.ps1" -Preset Balanced -GameRoot "C:\Path\To\STAR WARS Jedi Survivor"
 ```
 
 If the script detects older conflicting texture-fix PAKs, either remove them manually or run:
@@ -202,4 +239,8 @@ This fix, builder, documentation, packaging, and verification workflow were crea
 Built after community investigation into the Patch 9 texture streaming issue. The original public workaround showed that changing texture streaming headroom could fix broken textures, but its settings were too blunt for some 4 GB cards.
 
 This project uses a more conservative 4 GB-focused set of presets.
+
+
+
+
 
