@@ -1,0 +1,15 @@
+# Local build outputs
+/build/
+/source/
+/tools/
+/dist/
+
+# Release artifacts are uploaded to GitHub Releases, not tracked in git.
+/release/*.zip
+/release/*.sha256.txt
+
+# Local/editor noise
+.DS_Store
+Thumbs.db
+*.log
+*.tmp
